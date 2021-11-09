@@ -20,6 +20,14 @@ public class ElementPropertyList {
 		this.elementProperties.remove(elementProperty);
 	}
 
+	public boolean contains(ElementProperty property) {
+		for (ElementProperty elementProperty : elementProperties) {
+			if (elementProperty.getName() == property.getName())
+				return true;
+		}
+		return false;
+	}
+
 	public boolean isEmpty() {
 		return elementProperties.size() == 0;
 	}
@@ -28,9 +36,9 @@ public class ElementPropertyList {
 	public String toString() {
 		String s = "[";
 		for (ElementProperty elementProperty : elementProperties) {
-			s=s+" "+elementProperty;
+			s = s + " " + elementProperty;
 		}
-		return s+"]";
+		return s + "]";
 	}
-	
+
 }

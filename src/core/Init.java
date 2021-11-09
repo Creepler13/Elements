@@ -18,5 +18,11 @@ public class Init {
 		reg.registerElement(4, "fire", Color.RED, new ElementPropertyList(new Burning()));
 		reg.registerElement(5, "oil", Color.ORANGE, new ElementPropertyList(new Flameable(), new Fluid(4)));
 	}
+	
+	public static void reactionInit(Registry reg) {
+		
+		
+		
+	}
 
 }

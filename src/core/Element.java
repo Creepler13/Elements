@@ -2,10 +2,11 @@ package core;
 
 import java.awt.Color;
 
+import core.interfaces.IElement;
 import core.properties.ElementProperty;
 import core.properties.ElementPropertyList;
 
-public class Element {
+public class Element implements IElement {
 
 	private int id;
 	private String name;
@@ -54,10 +55,23 @@ public class Element {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getName()+"["+getID()+"],"+getProperties();
+		return getName() + "[" + getID() + "]," + getProperties();
+	}
+
+	public boolean equals(IElement e) {
+		if (e instanceof Element) {
+			return ((Element) e).getID() == getID();
+		} else if (e instanceof ElementProperty) {
+			return getProperties().contains((ElementProperty) e);
+		}
+		return false;
+	}
+
+	public boolean hasProperty(ElementProperty e1) {
+		return getProperties().contains(e1);
 	}
 
 }
