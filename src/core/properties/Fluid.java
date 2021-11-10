@@ -23,8 +23,6 @@ public class Fluid extends ElementProperty {
 			int newY = y + ks[1];
 			Element e = reg.getElement(map.get(newX, newY));
 			if (e.hasProperty("gas")) {
-				if (ks == dirs[0])
-					System.out.println("Fluid"+newX + " " + newY);
 				map.set(me.getID(), newX, newY);
 				map.set(e.getID(), x, y);
 				return;

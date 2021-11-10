@@ -32,21 +32,25 @@ public class Registry {
 
 	public HashMap<Integer, ArrayList<Reaction>> reactionRegistry = new HashMap<>();
 
-	public void registerReaction(IElement e1, IElement e2, Element e1out, Element e2out) {
-		Reaction reaction = new Reaction(e1, e2, e1out, e2out);
+	public void registerReaction(IElement e1, IElement e2, Element e1out, Element e2out, double probability) {
+		Reaction reaction = new Reaction(e1, e2, e1out, e2out, probability);
 		addReaction(e1, e2, reaction);
 	}
 
-	public void registerReaction(IElement e1, IElement e2, CustomReaction customReaction) {
-		Reaction reaction = new Reaction(e1, e2, customReaction);
+	public void registerReaction(IElement e1, IElement e2, CustomReaction customReaction, double probability) {
+		Reaction reaction = new Reaction(e1, e2, customReaction, probability);
 		addReaction(e1, e2, reaction);
 	}
 
 	public ArrayList<Reaction> getReactions(int id) {
+		if (!reactionRegistry.containsKey(id))
+			return new ArrayList<>();
 		return reactionRegistry.get(id);
 	}
 
 	public ArrayList<Reaction> getReactions(Element element) {
+		if (!reactionRegistry.containsKey(element.getID()))
+			return new ArrayList<>();
 		return reactionRegistry.get(element.getID());
 	}
 

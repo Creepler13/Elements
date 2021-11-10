@@ -21,7 +21,6 @@ public class Map {
 	public void set(int id, int x, int y) {
 		int tempX = x > width - 1 ? width - 1 : x < 0 ? 0 : x;
 		int tempY = y > (height - 1) ? (height - 1) : ((y < 0) ? 0 : y);
-		System.out.println(tempX+" "+tempY);
 		map[tempX + tempY * width] = id;
 	}
 
